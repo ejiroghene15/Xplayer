@@ -1,0 +1,50 @@
+.header {
+  background-color: #ddd;
+}
+#brand-logo {
+  font-size: 22px;
+}
+.header > div a {
+  padding: 18px 10px;
+}
+.header > div a.link-active {
+  border-bottom: 4px solid lightslategrey;
+}
+#login {
+  display: none;
+}
+.bgCover {
+  background-color: rgba(15, 13, 12, 0.2);
+  position: absolute;
+  top: 0;
+  display: none;
+  color: red;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  min-height: 100%;
+  min-width: 100%;
+}
+.bgCover > button{
+    margin-bottom: 100px;
+    display: none;
+}
+@media screen and (max-width: 768px) {
+  #brand-logo {
+    font-size: 1em;
+    margin-top: 6px;
+  }
+  #_form {
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+  #_form label {
+    font-size: 14px;
+  }
+  h3.form-title {
+    font-size: x-large;
+  }
+  #footer a {
+    font-size: 14px;
+  }
+}
