@@ -1,5 +1,5 @@
 /*
-Xplayer is a simple web audio player app developed by jiroGhene
+Xplayer is a simple web audio player app developed by EjiroGhene
 Feel free to play around the code
  */
 $(function () {
@@ -16,12 +16,33 @@ $(function () {
         setTimeout(() => {
             $("#preloader").addClass("animated fadeOut");
             fetchSongs();
-        }, 1000);
+        }, 500);
     });
 
     let sng = $("audio")[0];
     let sngTitle = $("#song-title")
     let songlist = $("#song-list");
+    let bgs = [
+        './assets/imgs/mcover.jpg',
+        './assets/imgs/mbg.jpg',
+        './assets/imgs/mbg2.jpg',
+        './assets/imgs/mbg3.jpg',
+        './assets/imgs/mbg4.jpg'
+    ];
+
+    function callbg() {
+        $.each(bgs, (i, val) => fadeBg(i)(setTimeout));
+    };
+
+    let fadeBg = (i) => {
+        return timer = (time) => {
+            time(function () {
+                $("#wrapper").css({ "backgroundImage": `url(${bgs[i]})`, "transition": "all 1s linear 1s" });
+                if (i == bgs.length - 1) { clearTimeout(time); time(() => callbg(), i * 4000) };
+                if(sng.ended) clearTimeout(time);
+            }, i * 8000);
+        }
+    }
 
     $("#upload").click(function () {
         $(":file").trigger("click");
@@ -38,6 +59,7 @@ $(function () {
 
     $(".micon").on("click", "#play", function () {
         if (sng.src !== '') {
+            if (sng.ended == true) trackTime();
             sng.play();
             $(this).attr({ src: "./assets/imgs/pause.png", id: "pause" });
         } else {
@@ -116,17 +138,17 @@ $(function () {
     }
 
     function trackTime() {
+        callbg();
         let timer = setInterval(function () {
-            if (sng.ended == true) {
-                clearInterval(timer);
+            if (isNaN(sng.currentTime) || isNaN(sng.duration)) {
+                $("#tt").text("0:00 / 0:00");
             } else {
-                if (isNaN(sng.currentTime) || isNaN(sng.duration)) {
-                    $("#tt").text("00:00/00:00");
-                } else {
-                    $("#tt").text(currentTime(sng.currentTime) + "/" + currentTime(sng.duration));
+                $("#tt").text(currentTime(sng.currentTime) + " / " + currentTime(sng.duration));
+                if (sng.ended == true) {
+                    clearPausedSong();
+                    clearInterval(timer);
                 }
             }
-
         }, 1000)
     };
 
@@ -135,7 +157,6 @@ $(function () {
         let hours = parseInt(duration / (60 * 60));
         let mins = parseInt(duration % (60 * 60) / 60);
         let secs = parseInt(duration % 60);
-        mins = mins < 10 ? `0${mins}` : mins;
         secs = secs < 10 ? `0${secs}` : secs;
         return duration = hours > 0 ? `${hours}:${mins}:${secs}` : `${mins}:${secs}`;
     }
@@ -146,7 +167,7 @@ $(function () {
         });
     }
 
-    function changeIcon(el) {
+    function changeIcon() {
         $("#play").attr({ src: "./assets/imgs/pause.png", id: "pause" });
     }
 
