@@ -8,4 +8,4 @@ Select the list of songs you want, the selected songs will be displayed immediat
 ## Playing a song
 To play a song, click on the name of any song uploaded on the page.
 
-<a href="https://jiroghene.github.io/Xplayer/xplayer.html"> See live demo </a>
+<a href="https://jiroghene.github.io/Xplayer/"> Live demo </a>
