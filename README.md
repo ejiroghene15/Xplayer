@@ -1,4 +1,4 @@
-T# Xplayer
+# Xplayer
 A minimal web audio player
 
 ## Uploading songs
