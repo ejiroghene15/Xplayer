@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,31 +7,42 @@
 		<title>X Music Player</title>
 		<link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="./assets/css/animate.min.css" />
-		<link rel="stylesheet" href="/assets//css/fa/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/assets//css/fa/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="./assets/css/xplayer.css" />
 	</head>
 
 	<body class="m-0">
 		<div class="position-fixed h-100 w-100 container-fluid" id="wrapper">
 			<main class="mt-3">
-				<div class="position-absolute h-100 w-100 d-flex justify-content-center align-items-center "
-					id="preloader">
+				<div
+					class="position-absolute h-100 w-100 d-flex justify-content-center align-items-center"
+					id="preloader"
+				>
 					<img src="./assets/imgs/rloader.gif" height="30" width="30" alt="" />
 				</div>
 				<div id="head">
 					<h4>
 						<center>
-							Xpl<span><img src="./assets/imgs/play.png" height="20" width="20" /></span>yer
+							Xpl<span
+								><img
+									src="./assets/imgs/play.png"
+									height="20"
+									width="20" /></span
+							>yer
 						</center>
 						<center><small>A minimal Web Audio Player</small></center>
 					</h4>
 				</div>
 
-				<div class="card p-0 bg-transparent col-md-8 col-sm-12 col-lg-6 mx-auto mt-5 mb-5">
-
-					<div class="card-header bg-dark d-flex justify-content-between bg-dark">
+				<div
+					class="card p-0 bg-transparent col-md-8 col-sm-12 col-lg-6 mx-auto mt-5 mb-5"
+				>
+					<div
+						class="card-header bg-dark d-flex justify-content-between bg-dark"
+					>
 						<h5 class="card-title mb-0">Playlist</h5>
-						<img src="./assets/imgs/upload.png" id="upload" height=22" width="22" class="align-middle" />
+						<img src="./assets/imgs/upload.png" id="upload" height=22"
+						width="22" class="align-middle" />
 					</div>
 					<div class="d-none">
 						<input type="file" id="music" multiple />
@@ -41,28 +51,40 @@
 					<div class="card-body px-2" style="background-color: #000000c4;">
 						<div id="no_song" class="text-center">
 							<h6 class="lead">No song found</h6>
-							<p class="card-text">Add songs to your playlist by clicking on the upload icon</p>
+							<p class="card-text">
+								Add songs to your playlist by clicking on the upload icon
+							</p>
 							<!-- <button href="#" class="btn btn-primary">
 								<small>Upload songs</small>
 								<img src="./assets/imgs/upload2.png" id="upload" height=25" width="25"
 									class="align-middle" />
 							</button> -->
 						</div>
-						<ul id="song-list" class="list-group w-100 pt-2 px-2 m-0 "></ul>
+						<ul id="song-list" class="list-group w-100 pt-2 px-2 m-0"></ul>
 					</div>
 					<div class="card-footer bg-dark">
 						<div id="displaybar">
-
 							<figcaption class="text-center">
 								<p id="song-title" class="pt-2"></p>
-								<p class="mb-1"><input type="range" min="0" value="0" id="seekable" class="w-100" disabled></p>
+								<p class="mb-1">
+									<input
+										type="range"
+										min="0"
+										value="0"
+										id="seekable"
+										class="w-100"
+										disabled
+									/>
+								</p>
 								<p class="d-flex justify-content-between" id="tt"></p>
 							</figcaption>
-							
-							<p class=" mb-n3 pb-1 mt-3 d-flex justify-content-between">
+
+							<p class="mb-n3 pb-1 mt-3 d-flex justify-content-between">
 								<span class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn btn-sm p-0">
-										<i class="micon"><img src="./assets/imgs/back.png" id="prev" /></i>
+										<i class="micon"
+											><img src="./assets/imgs/back.png" id="prev"
+										/></i>
 									</label>
 									<label class="btn btn-sm p-0">
 										<i class="micon">
@@ -70,10 +92,19 @@
 										</i>
 									</label>
 									<label class="btn btn-sm p-0">
-										<i class="micon"><img src="./assets/imgs/front.png" id="next" /></i>
+										<i class="micon"
+											><img src="./assets/imgs/front.png" id="next"
+										/></i>
 									</label>
 								</span>
-								<input type="range" min="0" max="1.0" step="0.1" id="vol" class="p-2">
+								<input
+									type="range"
+									min="0"
+									max="1.0"
+									step="0.1"
+									id="vol"
+									class="p-2"
+								/>
 							</p>
 						</div>
 					</div>
@@ -86,6 +117,12 @@
 		<img src="./assets/imgs/del.png" alt="" class="del" title='Delete song'/> -->
 		<script src="./assets/js//localforage.min.js"></script>
 		<script src="./assets/js/xplayer2.js"></script>
+		<script>
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", function () {
+					navigator.serviceWorker.register("./assets/js/sw.js");
+				});
+			}
+		</script>
 	</body>
-
 </html>
