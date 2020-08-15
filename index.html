@@ -120,7 +120,10 @@
 		<script>
 			if ("serviceWorker" in navigator) {
 				window.addEventListener("load", function () {
-					navigator.serviceWorker.register("./assets/js/sw.js");
+					navigator.serviceWorker
+						.register("./sw.js")
+						.then((reg) => console.log("Registered"))
+						.catch((err) => console.log("Registration failed: ", err));
 				});
 			}
 		</script>
