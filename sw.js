@@ -4,7 +4,6 @@ const resourceToPrecache = [
 	"./assets/css/bootstrap.min.css",
 	"./assets/css/animate.min.css",
 	"./assets/css/xplayer.css",
-	"/assets//css/fa/css/font-awesome.min.css",
 ];
 
 self.addEventListener("install", (event) => {
