@@ -1,9 +1,7 @@
 const cacheName = "cache-v1";
 const resourceToPrecache = [
-	"/",
 	"index.html",
 	"./assets/css/bootstrap.min.css",
-	"./assets/imgs/",
 	"./assets/css/animate.min.css",
 	"./assets/css/xplayer.css",
 	"/assets//css/fa/css/font-awesome.min.css",
