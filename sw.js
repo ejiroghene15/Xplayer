@@ -1,6 +1,6 @@
 const cacheName = "cache-v1";
 const resourceToPrecache = [
-	"index.html",
+	"./index.html",
 	"./assets/css/bootstrap.min.css",
 	"./assets/css/animate.min.css",
 	"./assets/css/xplayer.css",
@@ -20,5 +20,10 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-	console.log("Fetch intercepted for:", event.request.url);
+	// console.log("Fetch intercepted for:", event.request.url);
+	event.respondWith(
+		caches.match(event, request).then((cachedResponse) => {
+			return cachedResponse || fetch(event.request);
+		})
+	);
 });

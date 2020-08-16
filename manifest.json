@@ -1,0 +1,16 @@
+{
+	"name": "Xplayer",
+	"short_name": "Xplayer",
+	"start_url": "/index.html",
+	"display": "standalone",
+	"background_color": "#000000",
+	"theme_color": "#f5f5",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "/assets/imgs/play.png",
+			"type": "image/png",
+			"sizes": "64x64"
+		}
+	]
+}
