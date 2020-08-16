@@ -1,5 +1,6 @@
 const cacheName = "cache-v1";
 const resourceToPrecache = [
+	"./",
 	"./index.html",
 	"./assets/css/bootstrap.min.css",
 	"./assets/css/animate.min.css",
