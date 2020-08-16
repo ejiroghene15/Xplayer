@@ -8,9 +8,9 @@
 	"orientation": "portrait-primary",
 	"icons": [
 		{
-			"src": "./assets/imgs/play.png",
+			"src": "./assets/imgs/play-button.png",
 			"type": "image/png",
-			"sizes": "64x64"
+			"sizes": "512x512"
 		}
 	]
 }
